@@ -1,0 +1,47 @@
+---
+import '../styles/global.css';
+
+const {
+  title = 'Mood for Life',
+  description = 'Mood for Life explores attention, mood, vitality, meaning, and clinical presence through psychiatry, psychology, science, and contemplative practice.',
+  noindex = false
+} = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={Astro.url} />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="/">
+          <strong>Mood for Life</strong>
+          <span>Psychiatry • Science • Presence • Vitality</span>
+        </a>
+        <nav class="nav" aria-label="Primary navigation">
+          <a href="/about/">About</a>
+          <a href="/books/">Books</a>
+          <a href="/clinical-presence/">Clinical Presence</a>
+          <a href="/framework/">Framework</a>
+          <a href="/essays/">Essays</a>
+          <a href="/speaking/">Speaking</a>
+          <a href="/contact/">Contact</a>
+        </nav>
+      </div>
+    </header>
+    <main class="main">
+      <slot />
+    </main>
+    <footer class="footer">
+      <div class="footer-inner">
+        <p>© {new Date().getFullYear()} Richard C. Aiken. Mood for Life.</p>
+      </div>
+    </footer>
+  </body>
+</html>
